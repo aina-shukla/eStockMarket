@@ -16,7 +16,7 @@ public class CompanyService {
 
 	@Autowired
 	CompanyRepository companyRepository;
-	
+
 	@Autowired
 	StockExchangeRepository exchangeRepository;
 
@@ -49,8 +49,9 @@ public class CompanyService {
 			throw new CompanyNotFoundException("Company with Company Code '" + companyCode + "' doesn't exist.");
 	}
 
+	// Add stocks
 	public StockExchange addStockService(StockExchange stockExchange) {
 		return exchangeRepository.save(stockExchange);
 	}
-	
+
 }
