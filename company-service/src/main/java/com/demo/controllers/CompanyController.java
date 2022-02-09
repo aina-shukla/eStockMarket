@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.demo.entities.CompanyEntity;
+import com.demo.entities.StockExchange;
 import com.demo.services.CompanyService;
 
 @RestController
@@ -35,20 +36,26 @@ public class CompanyController {
 
 	// Fetches the Company Details
 	@GetMapping("info/{companyCode}")
-	public CompanyEntity getCompanyDetails(@PathVariable String companyCode){
+	public CompanyEntity getCompanyDetails(@PathVariable String companyCode) {
 		return companyService.findCompanyDetails(companyCode);
 	}
-	
-	//Fetches all the Company Details
-	@GetMapping("/getall")   
-	public List<CompanyEntity> getAllCompanyDetails(){
+
+	// Fetches all the Company Details
+	@GetMapping("/getall")
+	public List<CompanyEntity> getAllCompanyDetails() {
 		return companyService.findAllCompany();
 	}
-	
-	//Deletes a company
+
+	// Deletes a company
 	@DeleteMapping("delete/{companyCode}")
 	public void deleteCompany(@PathVariable String companyCode) {
 		companyService.deleteCompany(companyCode);
+	}
+
+	// Add Stocks
+	@PostMapping("/addStock")
+	public StockExchange addStock(@RequestBody StockExchange stockExchange) {
+		return companyService.addStockService(stockExchange);
 	}
 
 }
