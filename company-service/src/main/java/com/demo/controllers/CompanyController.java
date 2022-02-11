@@ -16,14 +16,14 @@ import com.demo.entities.StockExchange;
 import com.demo.services.CompanyService;
 
 @RestController
-@RequestMapping("/api/v1.0/market/company/")
+//@RequestMapping("/api/v1.0/market/company/")
 public class CompanyController {
 
 	@Autowired
 	CompanyService companyService;
 
 	// Test
-	@GetMapping()
+	@GetMapping("/hello")
 	public String hello() {
 		return "Company service";
 	}

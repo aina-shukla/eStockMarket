@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/v1.0/market/stock/")
+//@RequestMapping("/api/v1.0/market/stock/")
 public class StockController {
 	
-	@GetMapping() 
+	@GetMapping("/hello") 
 	public String sayHello() {
 		return "Stock Service";
 	}

@@ -1,7 +1,9 @@
 package com.demo;
 
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.Bean;
 import springfox.documentation.service.Contact;
 import springfox.documentation.builders.ApiInfoBuilder;
@@ -12,7 +14,9 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
+@EnableEurekaClient
 @EnableSwagger2
+@EnableAutoConfiguration
 public class MyCompanyApplication {
 	
 	public static void main(String[] args) {

@@ -5,6 +5,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -24,6 +25,7 @@ import com.stockService.com.stockService.entity.StockEntity;
 @EnableMongoRepositories
 @EnableAutoConfiguration
 //@EnableSwagger2
+@EnableEurekaClient
 @ComponentScan({ "com.stockService.com.stockService.controllers" })
 public class MyStockApplication implements CommandLineRunner {
 
