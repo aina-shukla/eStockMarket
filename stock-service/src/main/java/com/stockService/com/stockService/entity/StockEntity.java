@@ -1,10 +1,8 @@
 package com.stockService.com.stockService.entity;
 
-import java.sql.Date;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Document(collection = "StockEntity")
@@ -15,15 +13,25 @@ public class StockEntity {
 	private String companyCode;
 	private double stockPrice;
 	private String stockExchange;
-	@JsonFormat(pattern="MM/dd/yyyy")
-	private Date dateTime;
+	// @JsonFormat(pattern = "MM/dd/yyyy")
+	private String startDate;
+	// @JsonFormat(pattern = "MM/dd/yyyy")
+	private String endDate;
 
-	public Date getDateTime() {
-		return dateTime;
+	public String getStartDate() {
+		return startDate;
 	}
 
-	public void setDateTime(Date dateTime) {
-		this.dateTime = dateTime;
+	public void setStartDate(String startDate) {
+		this.startDate = startDate;
+	}
+
+	public String getEndDate() {
+		return endDate;
+	}
+
+	public void setEndDate(String endDate) {
+		this.endDate = endDate;
 	}
 
 	public int getStockId() {
@@ -61,16 +69,18 @@ public class StockEntity {
 	@Override
 	public String toString() {
 		return "StockEntity [stockId=" + stockId + ", companyCode=" + companyCode + ", stockPrice=" + stockPrice
-				+ ", stockExchange=" + stockExchange + ", dateTime=" + dateTime + "]";
+				+ ", stockExchange=" + stockExchange + ", startDate=" + startDate + ", endDate=" + endDate + "]";
 	}
 
-	public StockEntity(int stockId, String companyCode, double stockPrice, String stockExchange, Date dateTime) {
+	public StockEntity(int stockId, String companyCode, double stockPrice, String stockExchange, String startDate,
+			String endDate) {
 		super();
 		this.stockId = stockId;
 		this.companyCode = companyCode;
 		this.stockPrice = stockPrice;
 		this.stockExchange = stockExchange;
-		this.dateTime = dateTime;
+		this.startDate = startDate;
+		this.endDate = endDate;
 	}
 
 	public StockEntity() {
