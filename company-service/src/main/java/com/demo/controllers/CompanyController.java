@@ -23,7 +23,7 @@ public class CompanyController {
 	// Test
 	@GetMapping("/hello")
 	public String hello() {
-		return "Company service";
+		return "Welcome to Company service";
 	}
 
 	// Register a new company
