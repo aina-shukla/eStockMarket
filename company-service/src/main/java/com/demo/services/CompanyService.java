@@ -2,23 +2,17 @@ package com.demo.services;
 
 import java.util.List;
 import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.demo.entities.CompanyEntity;
-import com.demo.entities.StockExchange;
 import com.demo.exceptions.CompanyNotFoundException;
 import com.demo.repository.CompanyRepository;
-import com.demo.repository.StockExchangeRepository;
 
 @Service
 public class CompanyService {
 
 	@Autowired
 	CompanyRepository companyRepository;
-
-	@Autowired
-	StockExchangeRepository exchangeRepository;
 
 	// Register a new company
 	public CompanyEntity register(CompanyEntity companyEntity) {
@@ -47,11 +41,6 @@ public class CompanyService {
 			return "Deleted..";
 		} else
 			throw new CompanyNotFoundException("Company with Company Code '" + companyCode + "' doesn't exist.");
-	}
-
-	// Add stocks
-	public StockExchange addStockService(StockExchange stockExchange) {
-		return exchangeRepository.save(stockExchange);
 	}
 
 }

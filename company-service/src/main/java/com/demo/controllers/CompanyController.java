@@ -8,15 +8,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.demo.entities.CompanyEntity;
-import com.demo.entities.StockExchange;
 import com.demo.services.CompanyService;
 
 @RestController
-//@RequestMapping("/api/v1.0/market/company/")
 public class CompanyController {
 
 	@Autowired
@@ -50,12 +46,6 @@ public class CompanyController {
 	@DeleteMapping("delete/{companyCode}")
 	public void deleteCompany(@PathVariable String companyCode) {
 		companyService.deleteCompany(companyCode);
-	}
-
-	// Add Stocks
-	@PostMapping("/addStock")
-	public StockExchange addStock(@RequestBody StockExchange stockExchange) {
-		return companyService.addStockService(stockExchange);
 	}
 
 }

@@ -12,6 +12,15 @@ public class CompanyEntity {
 	private String companyCEO;
 	private long companyTurnover;
 	private String companyWebsite;
+	private boolean stockExchange;
+
+	public boolean isStockExchange() {
+		return stockExchange;
+	}
+
+	public void setStockExchange(boolean stockExchange) {
+		this.stockExchange = stockExchange;
+	}
 
 	public String getCompanyCode() {
 		return companyCode;
@@ -56,17 +65,19 @@ public class CompanyEntity {
 	@Override
 	public String toString() {
 		return "CompanyEntity [companyCode=" + companyCode + ", companyName=" + companyName + ", companyCEO="
-				+ companyCEO + ", companyTurnover=" + companyTurnover + ", companyWebsite=" + companyWebsite + "]";
+				+ companyCEO + ", companyTurnover=" + companyTurnover + ", companyWebsite=" + companyWebsite
+				+ ", stockExchange=" + stockExchange + "]";
 	}
 
 	public CompanyEntity(String companyCode, String companyName, String companyCEO, long companyTurnover,
-			String companyWebsite) {
+			String companyWebsite, boolean stockExchange) {
 		super();
 		this.companyCode = companyCode;
 		this.companyName = companyName;
 		this.companyCEO = companyCEO;
 		this.companyTurnover = companyTurnover;
 		this.companyWebsite = companyWebsite;
+		this.stockExchange = stockExchange;
 	}
 
 	public CompanyEntity() {

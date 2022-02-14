@@ -1,32 +1,26 @@
 package com.stockService.com.stockService;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
 import com.stockService.com.stockService.entity.StockEntity;
 
-//import springfox.documentation.builders.ApiInfoBuilder;
-//import springfox.documentation.builders.PathSelectors;
-//import springfox.documentation.service.ApiInfo;
-//import springfox.documentation.service.Contact;
-//import springfox.documentation.spi.DocumentationType;
-//import springfox.documentation.spring.web.plugins.Docket;
-//import springfox.documentation.swagger2.annotations.EnableSwagger2;
-
 @SpringBootApplication
 @EnableMongoRepositories
 @EnableAutoConfiguration
-//@EnableSwagger2
 @EnableEurekaClient
-@ComponentScan({ "com.stockService.com.stockService.controllers" })
+@ComponentScan({ "com.stockService.com.stockService.controllers", "com.stockService.com.stockService.services" })
 public class MyStockApplication implements CommandLineRunner {
 
 	@Autowired
@@ -41,30 +35,12 @@ public class MyStockApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		System.out.println(
 				//To check mongodb connection 
-				"Collection Exists ? " + mongoTemplate.collectionExists("stockmarket"));
-		StockEntity entityObj = new StockEntity("C07");
-		//mongoTemplate.insert(entityObj);
+				"Collection Exists ? " + mongoTemplate.collectionExists("mycollection"));
+//		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+//		Calendar cal = Calendar.getInstance();
+//		//System.out.println(dateFormat.format(cal.getTime()));
+//		StockEntity entityObj = new StockEntity(1,"C01", 1768.90, "NSE", dateFormat.format(cal.getTime()) );
+//		mongoTemplate.insert(entityObj);
 	}
-	
-//	@Bean
-//	public Docket swaggerConfig(){
-//		return new Docket(DocumentationType.SWAGGER_2)
-//			.select()
-//			.paths(PathSelectors.ant("/api/v1.0/market/stock/**"))
-//		    //.paths(RequestHandlerSelectors.basePackage("com.demo"))
-//			.build()
-//			.apiInfo(metadata())
-//			;
-//	}
-//	
-//	private ApiInfo metadata(){
-//		return new ApiInfoBuilder()
-//			.title("Welcome to stock service")
-//			.description("Stock service has all the stock details")
-//			.version("4.2.9")
-//			.license("www.stock_service.url")
-//			.contact(new Contact("Stock Service", "stock-service.page", "stock-service@gmail.com"))
-//			.build();
-//	}
 
 }
