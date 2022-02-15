@@ -4,3 +4,4 @@
 # DB - MySQL and MongoDB
 # microservice
 # zuul api gateway
+# JWT
