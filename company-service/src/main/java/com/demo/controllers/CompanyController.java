@@ -33,7 +33,7 @@ public class CompanyController {
 	}
 
 	// Fetches the Company Details
-	@GetMapping("info/{companyCode}")
+	@GetMapping("/info/{companyCode}")
 	public CompanyEntity getCompanyDetails(@PathVariable String companyCode) {
 		return companyService.findCompanyDetails(companyCode);
 	}
@@ -45,7 +45,7 @@ public class CompanyController {
 	}
 
 	// Deletes a company
-	@DeleteMapping("delete/{companyCode}")
+	@DeleteMapping("/delete/{companyCode}")
 	public void deleteCompany(@PathVariable String companyCode) {
 		companyService.deleteCompany(companyCode);
 	}

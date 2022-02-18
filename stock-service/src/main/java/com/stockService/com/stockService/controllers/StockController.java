@@ -24,14 +24,14 @@ public class StockController {
 	}
 
 	// Add new stock price
-	@PostMapping("add/{companyCode}")
+	@PostMapping("/add/{companyCode}")
 	public StockEntity addStockPrice(@RequestBody StockEntity stockEntity, @PathVariable String companyCode) {
 		stockEntity.setCompanyCode(companyCode);
 		return stockService.addStockPriceService(stockEntity, companyCode);
 	}
 
 	// Fetches Stock Price List
-	@GetMapping("get/{companyCode}/{startDate}/{endDate}")
+	@GetMapping("/get/{companyCode}/{startDate}/{endDate}")
 	public List<StockEntity> fetchStockPriceList(@PathVariable String companyCode, @PathVariable String startDate,
 			@PathVariable String endDate) {
 		return stockService.findAllStockPriceList(companyCode, startDate, endDate);
