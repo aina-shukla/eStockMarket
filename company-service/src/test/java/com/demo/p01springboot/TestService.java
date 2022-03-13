@@ -50,7 +50,7 @@ public class TestService {
 
 	@Test
 	public void addCompanyPositive() {
-		CompanyEntity companyEntity = new CompanyEntity("C50", "Paytm", "Aman", 5000000, "x.paytm.com", true);
+		CompanyEntity companyEntity = new CompanyEntity("C50", "Paytm", "Aman", 5000000, "x.paytm.com", "bse");
 		Mockito.when(repo.save(companyEntity)).thenReturn(companyEntity);
 		CompanyEntity getAllCompanyDetails1 = service.register(companyEntity);
 		Assertions.assertTrue(!getAllCompanyDetails1.equals(null));
@@ -58,7 +58,7 @@ public class TestService {
 
 	@Test
 	public void addCompanyNegative() {
-		CompanyEntity companyEntity = new CompanyEntity("C50", "Paytm", "Aman", 5000000, "x.paytm.com", true);
+		CompanyEntity companyEntity = new CompanyEntity("C50", "Paytm", "Aman", 5000000, "x.paytm.com", "nse");
 		Mockito.when(repo.save(companyEntity)).thenReturn(companyEntity);
 		CompanyEntity getAllCompanyDetails1 = service.register(companyEntity);
 		Assertions.assertFalse(getAllCompanyDetails1.equals(null));
