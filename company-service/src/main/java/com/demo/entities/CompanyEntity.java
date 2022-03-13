@@ -12,13 +12,13 @@ public class CompanyEntity {
 	private String companyCEO;
 	private long companyTurnover;
 	private String companyWebsite;
-	private boolean stockExchange;
+	private String stockExchange;
 
-	public boolean isStockExchange() {
+	public String isStockExchange() {
 		return stockExchange;
 	}
 
-	public void setStockExchange(boolean stockExchange) {
+	public void setStockExchange(String stockExchange) {
 		this.stockExchange = stockExchange;
 	}
 
@@ -70,7 +70,7 @@ public class CompanyEntity {
 	}
 
 	public CompanyEntity(String companyCode, String companyName, String companyCEO, long companyTurnover,
-			String companyWebsite, boolean stockExchange) {
+			String companyWebsite, String stockExchange) {
 		super();
 		this.companyCode = companyCode;
 		this.companyName = companyName;
